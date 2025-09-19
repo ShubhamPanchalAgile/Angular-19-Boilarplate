@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MaterialModule } from '../../../core/modules/material.module';
+import { MaterialModule } from '@core/modules/material.module';
 import {
   FloatLabelType,
   MatFormFieldAppearance,

@@ -5,9 +5,9 @@ import {
   Injector,
   runInInjectionContext,
 } from '@angular/core';
-import { StorageService } from '../core/services/storage.service';
-import { AuthState, initialState } from '../core/models/auth.interface';
-import { User } from '../core/services/auth.service';
+import { StorageService } from '@core/services/storage.service';
+import { AuthState, initialState } from '@core/models/auth.interface';
+import { User } from '@core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthSignal {

@@ -7,13 +7,12 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MaterialModule } from '../../../core/modules/material.module';
+import { MaterialModule } from '@core/modules/material.module';
 import { signal, computed, effect } from '@angular/core';
-import { NotificationService } from '../../../core/services/notification.service';
+import { NotificationService } from '@core/services/notification.service';
 
 export interface TableColumn {
   key: string;

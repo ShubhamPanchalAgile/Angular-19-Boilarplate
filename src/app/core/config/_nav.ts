@@ -1,4 +1,4 @@
-import { NavItem } from '../models/nav.interface';
+import { NavItem } from '@core/models/nav.interface';
 
 export const menuItem = (): NavItem[] => {
   return [

@@ -3,6 +3,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@src/*": ["*"],                       // root src (optional)
+      "@core/*": ["app/core/*"],             // services, guards, interceptors
+      "@signals/*": ["app/signals/*"],             // services, guards, interceptors
+      "@shared/*": ["app/shared/*"],         // reusable UI
+      "@features/*": ["app/features/*"],     // feature areas
+      "@layouts/*": ["app/layouts/*"],       // layout components
+      "@env/*": ["environments/*"],          // environment files
+      "@assets/*": ["assets/*"]              // static assets
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

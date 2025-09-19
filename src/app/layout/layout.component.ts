@@ -10,12 +10,12 @@ import { RouterOutlet } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
-import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { FooterComponent } from './footer/footer.component';
-import { uiSignal } from '../signals/ui.signal';
-import { themeSignal } from '../signals/theme.signal';
-import { MaterialModule } from '../core/modules/material.module';
+import { HeaderComponent } from '@src/app/layout/header/header.component';
+import { SidebarComponent } from '@src/app/layout/sidebar/sidebar.component';
+import { FooterComponent } from '@src/app/layout/footer/footer.component';
+import { uiSignal } from '@signals/ui.signal';
+import { themeSignal } from '@signals/theme.signal';
+import { MaterialModule } from '@core/modules/material.module';
 
 @Component({
   selector: 'app-layout',

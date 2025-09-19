@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
+import { authGuard } from '@core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -10,13 +10,15 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () =>
-      import('./auth/login/login.component').then((c) => c.LoginComponent),
+      import('@src/app/auth/login/login.component').then(
+        (c) => c.LoginComponent,
+      ),
     data: { renderMode: 'prerender', defer: true },
   },
   {
     path: 'admin',
     loadComponent: () =>
-      import('./layout/layout.component').then((c) => c.LayoutComponent),
+      import('@src/app/layout/layout.component').then((c) => c.LayoutComponent),
     canActivate: [authGuard],
     children: [
       {
@@ -27,7 +29,7 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadComponent: () =>
-          import('./features/dashboard/dashboard.component').then(
+          import('@features/dashboard/dashboard.component').then(
             (c) => c.DashboardComponent,
           ),
         data: { renderMode: 'client', defer: true },
@@ -35,7 +37,7 @@ export const routes: Routes = [
       {
         path: 'users',
         loadComponent: () =>
-          import('./features/users/users.component').then(
+          import('@features/users/users.component').then(
             (c) => c.UsersComponent,
           ),
         data: { renderMode: 'server', defer: true },
@@ -43,7 +45,7 @@ export const routes: Routes = [
       {
         path: 'products',
         loadComponent: () =>
-          import('./features/products/products.component').then(
+          import('@features/products/products.component').then(
             (c) => c.ProductsComponent,
           ),
         data: { renderMode: 'server', defer: true },
@@ -51,7 +53,7 @@ export const routes: Routes = [
       {
         path: 'settings',
         loadComponent: () =>
-          import('./features/settings/settings.component').then(
+          import('@features/settings/settings.component').then(
             (c) => c.SettingsComponent,
           ),
         data: { renderMode: 'client', defer: true },

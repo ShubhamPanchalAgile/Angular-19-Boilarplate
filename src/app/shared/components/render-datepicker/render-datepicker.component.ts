@@ -9,7 +9,7 @@ import {
   signal,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MaterialModule } from '../../../core/modules/material.module';
+import { MaterialModule } from '@core/modules/material.module';
 import { CommonModule } from '@angular/common';
 import {
   FloatLabelType,

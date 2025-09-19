@@ -6,20 +6,16 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MaterialModule } from '../../core/modules/material.module';
-import { RenderInputComponent } from '../../shared/components/render-input/render-input.component';
-import { RenderPasswordComponent } from '../../shared/components/render-password/render-password.component';
-import { NotificationService } from '../../core/services/notification.service';
-import { AuthSignal } from '../../signals/auth.signal';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@core/modules/material.module';
+import { RenderInputComponent } from '@shared/components/render-input/render-input.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { User } from '../../core/models/common.interface';
-import { RenderSelectComponent } from '../../shared/components/render-select/render-select.component';
-import { RenderDatepickerComponent } from '../../shared/components/render-datepicker/render-datepicker.component';
+import { User } from '@core/models/common.interface';
+import { RenderSelectComponent } from '@shared/components/render-select/render-select.component';
+import { RenderDatepickerComponent } from '@shared/components/render-datepicker/render-datepicker.component';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-add-user',
   standalone: true,
   imports: [
     CommonModule,

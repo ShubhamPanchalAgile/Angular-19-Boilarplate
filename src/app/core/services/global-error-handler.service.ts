@@ -6,8 +6,8 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { uiSignal } from '../../signals/ui.signal';
-import { StorageService } from './storage.service';
+import { uiSignal } from '@signals/ui.signal';
+import { StorageService } from '@core/services/storage.service';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {

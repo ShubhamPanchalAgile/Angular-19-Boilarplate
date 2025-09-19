@@ -1,5 +1,5 @@
 import { signal } from '@angular/core';
-import { ThemeMode, ThemeState } from '../core/models/common.interface';
+import { ThemeMode, ThemeState } from '@core/models/common.interface';
 
 const initialState: ThemeState = {
   mode: 'light',

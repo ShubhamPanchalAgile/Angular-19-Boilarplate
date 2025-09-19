@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../core/modules/material.module';
+import { MaterialModule } from '@core/modules/material.module';
 
 @Component({
   selector: 'app-footer',

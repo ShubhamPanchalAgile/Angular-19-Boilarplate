@@ -1,6 +1,6 @@
 import { effect, inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { uiSignal } from '../../signals/ui.signal';
+import { uiSignal } from '@signals/ui.signal';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationService {

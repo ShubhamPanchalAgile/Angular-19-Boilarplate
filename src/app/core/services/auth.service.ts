@@ -1,9 +1,9 @@
 import { Injectable, inject, computed, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, BehaviorSubject, map, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
-import { AuthSignal } from '../../signals/auth.signal';
+import { AuthSignal } from '@signals/auth.signal';
 
 export interface LoginRequest {
   email: string;

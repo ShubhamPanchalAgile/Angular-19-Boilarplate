@@ -7,15 +7,14 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MaterialModule } from '../../core/modules/material.module';
-import { RenderInputComponent } from '../../shared/components/render-input/render-input.component';
-import { RenderPasswordComponent } from '../../shared/components/render-password/render-password.component';
-import { NotificationService } from '../../core/services/notification.service';
-import { AuthSignal } from '../../signals/auth.signal';
+import { MaterialModule } from '@core/modules/material.module';
+import { RenderInputComponent } from '@shared/components/render-input/render-input.component';
+import { RenderPasswordComponent } from '@shared/components/render-password/render-password.component';
+import { NotificationService } from '@core/services/notification.service';
+import { AuthSignal } from '@signals/auth.signal';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-login',
   standalone: true,
   imports: [
     CommonModule,
@@ -35,27 +34,27 @@ export class LoginComponent {
 
   private notificationService = inject(NotificationService);
 
-  registerForm: FormGroup;
+  loginForm: FormGroup;
   hidePassword = true;
   hideConfirmPassword = true;
   isLoading = false;
   constructor(private cd: ChangeDetectorRef) {
-    this.registerForm = this.fb.group({
+    this.loginForm = this.fb.group({
       email: ['test@admin.com', [Validators.required, Validators.email]],
       password: ['Test@123', [Validators.required, Validators.minLength(8)]],
     });
   }
 
   onSubmit() {
-    if (this.registerForm.valid) {
+    if (this.loginForm.valid) {
       this.authSignal.setLoading(true);
       this.isLoading = true;
 
       setTimeout(() => {
         const user = {
           id: crypto.randomUUID(),
-          email: this.registerForm.value.email,
-          name: this.registerForm.value.name ?? 'Guest',
+          email: this.loginForm.value.email,
+          name: this.loginForm.value.name ?? 'Guest',
           role: 'user',
         };
 

@@ -6,10 +6,10 @@ import {
   computed,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../core/services/auth.service';
-import { themeSignal } from '../../signals/theme.signal';
-import { MaterialModule } from '../../core/modules/material.module';
-import { AuthSignal } from '../../signals/auth.signal';
+import { AuthService } from '@core/services/auth.service';
+import { themeSignal } from '@signals/theme.signal';
+import { MaterialModule } from '@core/modules/material.module';
+import { AuthSignal } from '@signals/auth.signal';
 
 @Component({
   selector: 'app-header',

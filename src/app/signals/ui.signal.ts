@@ -1,5 +1,5 @@
 import { signal } from '@angular/core';
-import { Notification, UIState } from '../core/models/ui.interface';
+import { Notification, UIState } from '@core/models/ui.interface';
 
 const initialState: UIState = {
   sidebarOpen: true,

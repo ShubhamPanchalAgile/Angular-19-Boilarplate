@@ -9,7 +9,7 @@ import {
 import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { themeSignal } from './signals/theme.signal';
+import { themeSignal } from '@signals/theme.signal';
 
 @Component({
   selector: 'app-root',

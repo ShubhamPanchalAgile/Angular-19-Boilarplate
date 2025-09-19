@@ -7,10 +7,10 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { MaterialModule } from '../../core/modules/material.module';
-import { NavItem } from '../../core/models/nav.interface';
-import { menuItem } from '../../core/config/_nav';
-import { AuthSignal } from '../../signals/auth.signal';
+import { MaterialModule } from '@core/modules/material.module';
+import { NavItem } from '@core/models/nav.interface';
+import { menuItem } from '@core/config/_nav';
+import { AuthSignal } from '@signals/auth.signal';
 
 @Component({
   selector: 'app-sidebar',

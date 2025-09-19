@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, effect, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '../../core/modules/material.module';
-import { CustomTableComponent } from '../../shared/components/custom-table/custom-table.component';
+import { MaterialModule } from '@core/modules/material.module';
+import { CustomTableComponent } from '@shared/components/custom-table/custom-table.component';
 
 @Component({
   selector: 'app-products',

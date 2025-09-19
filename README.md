@@ -1,59 +1,97 @@
-# Angular19App
+# Angular 19 Standalone App with Signals
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+![Angular](https://img.shields.io/badge/Angular-19-red?logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?logo=typescript)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## Development server
+A modern Angular 19 project template using **standalone components**, **signal-driven state management**, and **zoneless change detection**. Designed for **SSR readiness**, **incremental hydration**, and **lazy-loaded features** with reusable services and Angular Material.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Table of Contents
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [Features](#features)
+- [Folder Structure](#folder-structure)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Recommended Practices](#recommended-practices)
+- [Author](#author)
+- [License](#license)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Features
 
-```bash
-ng generate component component-name
-```
+- **Standalone Components Only**  
+  No NgModules required. Fully leverages Angular 19 standalone architecture.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Signals-based State Management**  
+  Use Angular signals (`signal()`, `computed()`, `effect()`) for reactive state instead of RxJS where possible.  
+  Example: store user session, theme, sidebar toggle state with signals.
 
-```bash
-ng generate --help
-```
+- **Zoneless Change Detection**  
+  Configure the app to run without `Zone.js`.
 
-## Building
+- **Incremental Hydration & SSR Ready**  
+  Supports server-side rendering and incremental hydration for faster page loads.
 
-To build the project run:
+- **Angular Material & CDK**  
+  Fully integrated Material UI components and CDK for layout and accessibility.
 
-```bash
-ng build
-```
+- **Lazy Loading & Route Deferring**  
+  Optimized for performance with deferred route loading.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Global Error Handling + Interceptors**  
+  - API error interceptor with toast notifications  
+  - JWT interceptor for authenticated API requests
 
-## Running unit tests
+- **Reusable Services**  
+  - API service (with `HttpClient` + signals)  
+  - Auth, Storage, and Theme services
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## Folder Structure
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```text
+src/
+ ├── app/
+ │    ├── auth/                        # Authentication feature
+ │    │    ├── login/
+ │    │    └── register/
+ │    │
+ │    ├── core/                        # Singletons, services, guards, interceptors
+ │    │    ├── config/                 # App constants, environment settings
+ │    │    ├── guards/                 # AuthGuard, RoleGuard
+ │    │    ├── interceptors/           # JWT, Error handling
+ │    │    ├── models/
+ │    │    ├── modules/
+ │    │    ├── services/               # API, Auth, Storage, Theme
+ │    │
+ │    ├── shared/                      # Reusable standalone components/pipes/directives
+ │    │    ├── components/             # Buttons, Modals, Table, Chart wrapper
+ │    │    ├── directives/             # Example: Autofocus, Debounce
+ │    │    └── pipes/                  # DateFormat, Currency, etc.
+ │    │
+ │    ├── layout/                      # Admin Layout
+ │    │    ├── sidebar/                # Navigation
+ │    │    ├── header/                 # Topbar
+ │    │    └── footer/                 # Footer
+ │    │
+ │    ├── features/                    # Core business features
+ │    │    ├── dashboard/              # Dashboard with charts/cards
+ │    │    ├── users/                  # Example CRUD module
+ │    │    ├── products/               # Example CRUD module
+ │    │    └── settings/               # Profile, Preferences
+ │    │
+ │    ├── signals/                     # Global signals stores (mini state management)
+ │    │    ├── auth.signal.ts
+ │    │    ├── theme.signal.ts
+ │    │    └── ui.signal.ts
+ │    │
+ │    ├── app.routes.ts                # Route-level rendering config
+ │    └── app.config.ts                # App bootstrap config (with provideZone: 'noop')
+ │
+ ├── assets/                           # Static files (images, i18n json, icons)
+ ├── environments/                     # env.dev.ts, env.prod.ts
+ └── main.ts                           # Bootstraps App with standalone components

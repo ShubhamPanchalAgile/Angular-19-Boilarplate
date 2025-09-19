@@ -1,0 +1,58 @@
+<ng-container [formGroup]="group()">
+  <mat-form-field
+    class="example-full-width"
+    [appearance]="IAppearance() || 'outline'"
+    [floatLabel]="IFloatLabel() || 'auto'"
+  >
+    <mat-label>{{ ILabel() }}</mat-label>
+    @if (IPrefixIcon()) {
+      <mat-icon matPrefix>{{ IPrefixIcon() }}</mat-icon>
+    }
+    @if (IPrefixText()) {
+      <span matPrefix>{{ IPrefixText() }}</span>
+    }
+    <mat-select
+      disableOptionCentering="true"
+      [formControlName]="IName()"
+      (valueChange)="IOnChange.emit($event)"
+      (selectionChange)="onSelectionChange($event)"
+      [multiple]="IMultiple() || false"
+      [required]="IRequired() || false"
+    >
+      @if (isShowSelectAll()) {
+        <mat-option [value]="'all'" (click)="isAllSelected()">
+          {{ isAllSelected() ? "Unselect All" : "All" }}
+        </mat-option>
+      }
+      @for (select of options; track $index) {
+        <mat-option [value]="isValueName() ? select.name : select.value">
+          <span
+            #label
+            (mouseover)="setTooltip(label)"
+            class="option-text"
+            [matTooltip]="select.name"
+            [matTooltipDisabled]="label.dataset['overflow'] !== 'true'"
+            matTooltipPosition="right"
+          >
+            {{ select.name }}
+          </span>
+        </mat-option>
+      }
+      @if (group().get(IName())?.disabled) {
+        <mat-option [value]="'N/A'"> N/A </mat-option>
+      }
+    </mat-select>
+    @if (IHint()) {
+      <mat-hint>{{ IHint() }}</mat-hint>
+    }
+    @if (IErrorMsg()) {
+      <mat-error>{{ IErrorMsg() }}</mat-error>
+    }
+    @if (ISuffixIcon()) {
+      <mat-icon matSuffix>{{ ISuffixIcon() }}</mat-icon>
+    }
+    @if (ISuffixText()) {
+      <span matSuffix>{{ ISuffixText() }}</span>
+    }
+  </mat-form-field>
+</ng-container>

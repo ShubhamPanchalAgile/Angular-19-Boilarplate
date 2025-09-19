@@ -1,0 +1,103 @@
+<mat-card class="register-card">
+  <mat-card-header class="register-header">
+    <div class="logo-section">
+      <h1>{{ isEdit ? "Edit user" : "Add user" }}</h1>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content class="register-content">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-render-input
+        [group]="form"
+        class="app-render full-width"
+        IName="name"
+        ILabel="Name *"
+        placeholder="Enter name"
+        [IErrorMsg]="'Name is required'"
+      ></app-render-input>
+
+      <app-render-input
+        [group]="form"
+        class="app-render full-width"
+        IName="email"
+        ILabel="Email *"
+        placeholder="Enter email"
+        [IErrorMsg]="'Email is required'"
+      ></app-render-input>
+
+      <app-render-input
+        [group]="form"
+        class="app-render full-width"
+        IName="role"
+        ILabel="Role *"
+        placeholder="Enter role"
+        [IErrorMsg]="'Role is required'"
+      ></app-render-input>
+
+      <app-render-input
+        [group]="form"
+        class="app-render full-width"
+        IName="status"
+        ILabel="Status *"
+        placeholder="Enter status"
+        [IErrorMsg]="'Status is required'"
+      ></app-render-input>
+
+      <app-render-datepicker
+        [group]="form"
+        class="app-render full-width"
+        IName="joinDate"
+        ILabel="Join Date *"
+        placeholder="Enter join date"
+        [IErrorMsg]="'Join Date is required'"
+      ></app-render-datepicker>
+
+      <app-render-select
+        [group]="form"
+        class="app-render full-width"
+        IName="department"
+        ILabel="Department *"
+        placeholder="Enter department"
+        [IErrorMsg]="'Department is required'"
+      ></app-render-select>
+
+      @if (isLoading) {
+        <mat-progress-bar
+          mode="indeterminate"
+          class="loading-bar"
+        ></mat-progress-bar>
+      }
+
+      <div class="custom-modal-actions">
+        @if (!isView) {
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            class="register-button full-width"
+            [disabled]="form.invalid || isLoading"
+          >
+            @if (isLoading) {
+              <mat-icon>person_add</mat-icon>
+            }
+            @if (isEdit) {
+              {{ isLoading ? "Upading user..." : "Update User" }}
+            } @else {
+              {{ isLoading ? "Creating user..." : "Create User" }}
+            }
+          </button>
+        }
+
+        <button
+          mat-stroked-button
+          color="primary"
+          type="submit"
+          class="register-button full-width"
+          (click)="close()"
+        >
+          Close
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

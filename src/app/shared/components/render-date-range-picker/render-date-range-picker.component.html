@@ -1,0 +1,26 @@
+<ng-container [formGroup]="group()">
+  <mat-form-field
+    class="example-full-width"
+    [appearance]="IAppearance()"
+    [floatLabel]="IFloatLabel()"
+  >
+    <mat-label>{{ ILabel() }}</mat-label>
+    <mat-date-range-input [rangePicker]="picker" [min]="maxDate()">
+      <input matStartDate formControlName="start" placeholder="Start date" />
+      <input matEndDate formControlName="end" placeholder="End date" />
+    </mat-date-range-input>
+
+    @if (IHint()) {
+      <mat-hint>{{ IHint() }}</mat-hint>
+    }
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+
+    @if (range.controls.start.hasError("matStartDateInvalid")) {
+      <mat-error>Invalid start date</mat-error>
+    }
+    @if (range.controls.end.hasError("matEndDateInvalid")) {
+      <mat-error>Invalid end date</mat-error>
+    }
+  </mat-form-field></ng-container
+>

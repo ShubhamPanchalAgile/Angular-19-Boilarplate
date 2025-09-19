@@ -1,0 +1,55 @@
+<div class="register-container">
+  <div class="register-card-wrapper">
+    <mat-card class="register-card">
+      <mat-card-header class="register-header">
+        <div class="logo-section">
+          <mat-icon class="app-logo">dashboard</mat-icon>
+          <h1>Sign In</h1>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content class="register-content">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <app-render-input
+            [group]="registerForm"
+            class="app-render full-width"
+            IName="email"
+            ILabel="Email *"
+            placeholder="Enter email"
+            [IErrorMsg]="'email is required'"
+          ></app-render-input>
+
+          <div class="form-row">
+            <app-render-password
+              [group]="registerForm"
+              class="app-render half-width"
+              IName="password"
+              ILabel="Password"
+              placeholder="Enter Password"
+            ></app-render-password>
+          </div>
+
+          @if (isLoading) {
+            <mat-progress-bar
+              mode="indeterminate"
+              class="loading-bar"
+            ></mat-progress-bar>
+          }
+
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            class="register-button full-width"
+            [disabled]="registerForm.invalid || isLoading"
+          >
+            @if (isLoading) {
+              <mat-icon>person_add</mat-icon>
+            }
+            {{ isLoading ? "Sign In..." : "Sign In" }}
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

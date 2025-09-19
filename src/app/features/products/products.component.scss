@@ -1,0 +1,30 @@
+.users-container {
+  padding: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 24px;
+}
+
+.header-content h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.header-content p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}

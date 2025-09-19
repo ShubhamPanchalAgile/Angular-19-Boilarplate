@@ -1,0 +1,41 @@
+<div class="users-container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="header-content">
+      <h1 class="page-title">Users Management</h1>
+      <p class="page-subtitle">Manage user accounts and permissions</p>
+    </div>
+    <div class="header-actions">
+      <button mat-raised-button color="primary" (click)="addUser()">
+        <mat-icon>add</mat-icon>
+        Add User
+      </button>
+      <button mat-stroked-button [matMenuTriggerFor]="exportMenu">
+        <mat-icon>download</mat-icon>
+        Export
+      </button>
+    </div>
+  </div>
+
+  <mat-menu #exportMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>table_chart</mat-icon>
+      Export as CSV
+    </button>
+    <button mat-menu-item>
+      <mat-icon>description</mat-icon>
+      Export as Excel
+    </button>
+    <button mat-menu-item>
+      <mat-icon>picture_as_pdf</mat-icon>
+      Export as PDF
+    </button>
+  </mat-menu>
+
+  <!-- Data Table Card -->
+  <mat-card class="table-card">
+    <mat-card-content class="table-content">
+      <app-custom-table #table></app-custom-table>
+    </mat-card-content>
+  </mat-card>
+</div>

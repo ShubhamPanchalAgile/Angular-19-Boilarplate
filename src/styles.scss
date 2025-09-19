@@ -1,0 +1,326 @@
+/* Global Styles */
+@use "@angular/material" as *;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* Material Icons */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Material Theme */
+.mat-mdc-card {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-mdc-button {
+  border-radius: 8px !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+}
+
+.mat-mdc-raised-button {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field .mat-mdc-form-field-outline {
+  border-radius: 8px !important;
+}
+
+/* Table Styles */
+.mat-mdc-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mat-mdc-header-cell {
+  font-weight: 600 !important;
+  color: #333 !important;
+  background-color: #f8f9fa !important;
+}
+
+.mat-mdc-row:hover {
+  background-color: #f5f5f5 !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Chip Styles */
+.mat-mdc-chip {
+  border-radius: 16px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Dark Theme Overrides */
+.dark-theme {
+  background-color: #303030 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-card {
+  background-color: #424242 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-form-field-outline {
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-form-field-label {
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-input-element {
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-select-value {
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-table {
+  background-color: #424242 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-header-cell {
+  background-color: #616161 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-row:hover {
+  background-color: #515151 !important;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: #424242;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.p-8 {
+  padding: 8px;
+}
+
+.p-16 {
+  padding: 16px;
+}
+
+.p-24 {
+  padding: 24px;
+}
+
+/* Responsive Utilities */
+.hide-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+.show-mobile {
+  display: none;
+}
+
+/* Custom Snackbar Colors */
+.success-snackbar {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+.error-snackbar {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+.warning-snackbar {
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+
+.info-snackbar {
+  background-color: #2196f3 !important;
+  color: white !important;
+}
+
+/* Loading States */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .mat-mdc-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+}
+
+::ng-deep {
+  .custom-dialog-container {
+    .mat-mdc-dialog-container {
+      max-width: 80vw !important;
+      width: 620px !important;
+      max-height: calc(100vh - 100px) !important;
+    }
+  }
+}

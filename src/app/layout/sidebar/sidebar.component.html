@@ -1,0 +1,32 @@
+<div class="sidebar-content">
+  <!-- User Profile Section -->
+  <div class="user-profile">
+    <div class="user-avatar">
+      <mat-icon class="avatar-icon">account_circle</mat-icon>
+    </div>
+    <div class="user-info">
+      <h3 class="user-name">{{ currentUser()?.name || "User" }}</h3>
+      <p class="user-email">{{ currentUser()?.email || "user@example.com" }}</p>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <!-- Navigation Menu -->
+  <mat-nav-list class="nav-list">
+    @for (item of navItems; track $index) {
+      <ng-container>
+        <a
+          mat-list-item
+          [routerLink]="item.path"
+          routerLinkActive="active-link"
+          (click)="onNavItemClick()"
+          class="nav-item"
+        >
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      </ng-container>
+    }
+  </mat-nav-list>
+</div>

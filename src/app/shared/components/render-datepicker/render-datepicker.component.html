@@ -1,0 +1,29 @@
+<ng-container [formGroup]="group()">
+  <mat-form-field
+    class="example-full-width"
+    [appearance]="IAppearance() || 'outline'"
+    [floatLabel]="IFloatLabel() || 'auto'"
+  >
+    <mat-label>{{ ILabel() }}</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      (dateChange)="IOnChange.emit($event)"
+      [required]="IRequired() || false"
+      [formControlName]="IName()"
+      [name]="IName()"
+      [min]="maxDate()"
+    />
+    @if (IHint()) {
+      <mat-hint>{{ IHint() }}</mat-hint>
+    }
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    @if (IErrorMsg()) {
+      <mat-error>{{ IErrorMsg() }}</mat-error>
+    }
+    @if (ISuffixIcon()) {
+      <mat-icon matDatepickerToggleIcon>{{ ISuffixIcon() }}</mat-icon>
+    }
+  </mat-form-field>
+</ng-container>

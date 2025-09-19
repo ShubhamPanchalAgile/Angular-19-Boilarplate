@@ -1,0 +1,116 @@
+<mat-card class="table-card">
+  <mat-card-header>
+    <mat-card-title
+      >{{ tableName() }} ({{ dataSource.filteredData.length }})</mat-card-title
+    >
+  </mat-card-header>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="users-table">
+      <!-- Selection Column -->
+      @if (selectable()) {
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox
+              (change)="masterToggle()"
+              [checked]="isAllSelected()"
+              [indeterminate]="isIndeterminate()"
+            ></mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="toggleRow(row)"
+              [checked]="isSelected(row)"
+            ></mat-checkbox>
+          </td>
+        </ng-container>
+      }
+
+      <!-- Dynamic Columns -->
+      @for (col of columns(); track $index) {
+        <ng-container [matColumnDef]="col.key">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ col.label }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <ng-container>
+              @switch (col.type) {
+                @case ("status") {
+                  <mat-chip>
+                    <mat-icon>{{ getStatusIcon(element[col.key]) }}</mat-icon>
+                    {{ element[col.key] | titlecase }}
+                  </mat-chip>
+                }
+
+                @case ("avatar") {
+                  <mat-icon>account_circle</mat-icon>
+                }
+                @default {
+                  <span>{{ element[col.key] }}</span>
+                }
+              }
+            </ng-container>
+          </td>
+        </ng-container>
+      }
+
+      <!-- Actions Column -->
+      @if (actions()) {
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let user">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="actionMenu"
+              (click)="setSelectedUser(user)"
+            >
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      }
+
+      <!-- Header & Row -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns()"
+        (click)="selectRow(row)"
+        [class.selected-row]="isSelected(row)"
+      ></tr>
+    </table>
+  </div>
+
+  <!-- No Data -->
+  @if (dataSource.filteredData.length === 0) {
+    <div class="no-data">
+      <mat-icon>people_outline</mat-icon>
+      <h3>No data found</h3>
+    </div>
+  }
+
+  <!-- Paginator -->
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageSize]="10"
+    showFirstLastButtons
+  ></mat-paginator>
+
+  <!-- Action Menu -->
+  <mat-menu #actionMenu="matMenu">
+    <button mat-menu-item (click)="editUser()">
+      <mat-icon>edit</mat-icon>Edit
+    </button>
+    <button mat-menu-item (click)="viewUser()">
+      <mat-icon>visibility</mat-icon>View
+    </button>
+    <!-- <button mat-menu-item (click)="resetPassword()">
+      <mat-icon>lock_reset</mat-icon>Reset Password
+    </button> -->
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="deleteUser()" class="delete-action">
+      <mat-icon>delete</mat-icon>Delete
+    </button>
+  </mat-menu>
+</mat-card>

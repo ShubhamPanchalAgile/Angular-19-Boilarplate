@@ -1,0 +1,147 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.register-card-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+.register-card {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.register-header {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  color: white;
+  padding: 32px 24px 24px;
+  text-align: center;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.app-logo {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: white;
+}
+
+.logo-section h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white;
+}
+
+.welcome-text {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  color: white;
+}
+
+.register-content {
+  padding: 32px 24px 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.half-width {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.checkbox-row {
+  margin-bottom: 16px;
+}
+
+.checkbox-row mat-error {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  display: block;
+}
+
+.link {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.loading-bar {
+  margin-bottom: 20px;
+}
+
+.register-button {
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.form-footer {
+  text-align: center;
+}
+
+.form-footer p {
+  margin: 0;
+  color: #666;
+}
+
+.login-link {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    padding: 16px;
+  }
+
+  .register-header {
+    padding: 24px 16px 20px;
+  }
+
+  .register-content {
+    padding: 24px 16px 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .half-width {
+    width: 100%;
+  }
+}

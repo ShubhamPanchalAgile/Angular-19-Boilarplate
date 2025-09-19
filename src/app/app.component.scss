@@ -1,0 +1,77 @@
+.app-root {
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.dark-theme {
+  background-color: #303030;
+  color: #ffffff;
+}
+
+/* Global Dark Theme Styles */
+.dark-theme .mat-mdc-card {
+  background-color: #424242 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-form-field {
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-input-element {
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-select {
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-table {
+  background-color: #424242 !important;
+  color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-header-row {
+  background-color: #616161 !important;
+}
+
+.dark-theme .mat-mdc-row:hover {
+  background-color: #515151 !important;
+}
+
+/* Custom Snackbar Styles */
+::ng-deep .success-snackbar {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+::ng-deep .error-snackbar {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+::ng-deep .warning-snackbar {
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+
+::ng-deep .info-snackbar {
+  background-color: #2196f3 !important;
+  color: white !important;
+}
+
+.toast-success {
+  background: #4caf50;
+  color: #fff;
+}
+
+.toast-error {
+  background: #f44336;
+  color: #fff;
+}
+
+.toast-info {
+  background: #2196f3;
+  color: #fff;
+}

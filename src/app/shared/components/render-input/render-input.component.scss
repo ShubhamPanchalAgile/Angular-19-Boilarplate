@@ -1,0 +1,28 @@
+.mat-form-field-prefix {
+  width: 24px;
+  height: 24px;
+  background: red;
+}
+
+.example-full-width {
+  flex: 1;
+  margin-right: -4px;
+}
+.input-group-append {
+  position: absolute;
+  right: -6px;
+  top: 0;
+}
+.input-group-text {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}

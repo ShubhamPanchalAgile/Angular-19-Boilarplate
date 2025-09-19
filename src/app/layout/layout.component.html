@@ -1,0 +1,28 @@
+<div class="layout-container" [class.dark-theme]="isDarkMode()">
+  <mat-sidenav-container class="sidenav-container">
+    <!-- Sidebar -->
+    <mat-sidenav
+      #sidenav
+      [mode]="sidenavMode()"
+      [opened]="sidenavOpened()"
+      class="sidenav"
+      fixedInViewport="true"
+      fixedTopGap="64"
+    >
+      <app-sidebar (closeSidenav)="closeSidenav()"></app-sidebar>
+    </mat-sidenav>
+
+    <!-- Main Content -->
+    <mat-sidenav-content class="sidenav-content">
+      <app-header (toggleSidenav)="toggleSidenav()"></app-header>
+
+      <main class="main-content">
+        <div class="content-wrapper">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

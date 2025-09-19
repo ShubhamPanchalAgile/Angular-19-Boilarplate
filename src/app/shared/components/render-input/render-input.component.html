@@ -1,0 +1,61 @@
+<ng-container [formGroup]="group()">
+  <mat-form-field
+    class="example-full-width"
+    [appearance]="IAppearance() || 'outline'"
+    [floatLabel]="IFloatLabel() || 'never'"
+  >
+    <mat-label>{{ ILabel() }}</mat-label>
+
+    @if (IPrefixIcon()) {
+      <mat-icon matPrefix>{{ IPrefixIcon() }}</mat-icon>
+    }
+    @if (IPrefixText()) {
+      <span matPrefix>{{ IPrefixText() }}</span>
+    }
+
+    <input
+      [type]="IType() || 'text'"
+      #message
+      [maxlength]="Imaxlength()"
+      [formControlName]="IName()"
+      [name]="IName()"
+      matInput
+      autocomplete="off"
+      [placeholder]="Iplaceholder()"
+      [required]="IRequired() || false"
+    />
+
+    @if (IGroupText()) {
+      <div class="input-group-append">
+        <span class="input-group-text">{{ IGroupText() }}</span>
+      </div>
+    }
+    @if (IHint()) {
+      <mat-hint>{{ IHint() }}</mat-hint>
+    }
+    @if (Imaxlength()) {
+      <mat-hint align="end">
+        {{ message.value.length }} / {{ Imaxlength() }}
+      </mat-hint>
+    }
+    @if (IErrorMsg()) {
+      <mat-error>{{ IErrorMsg() }}</mat-error>
+    }
+    @if (ISuffixIcon()) {
+      <mat-icon matSuffix>{{ ISuffixIcon() }}</mat-icon>
+    }
+    @if (ISuffixText()) {
+      <span matSuffix>{{ ISuffixText() }}</span>
+    }
+    @if (Clear() && value()) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="value.set('')"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    }
+  </mat-form-field>
+</ng-container>

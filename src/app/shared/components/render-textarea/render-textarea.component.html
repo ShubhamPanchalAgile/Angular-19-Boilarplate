@@ -1,0 +1,27 @@
+<ng-container [formGroup]="group()">
+  <mat-form-field
+    class="example-full-width"
+    [appearance]="IAppearance()"
+    [floatLabel]="IFloatLabel() || 'never'"
+  >
+    <mat-label>{{ ILabel() }}</mat-label>
+    <textarea
+      [maxlength]="Imaxlength()"
+      #message
+      matInput
+      [formControlName]="IName()"
+      [name]="IName()"
+      [ngClass]="IClass() || ''"
+      [placeholder]="Iplaceholder()"
+      style="height: 50px"
+    ></textarea>
+    @if (!isHide) {
+      <mat-hint align="end"
+        >{{ message.value.length }} / {{ Imaxlength() }}</mat-hint
+      >
+    }
+    @if (IErrorMsg()) {
+      <mat-error>{{ IErrorMsg() }}</mat-error>
+    }
+  </mat-form-field>
+</ng-container>

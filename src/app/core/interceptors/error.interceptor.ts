@@ -3,12 +3,30 @@ import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '@core/services/auth.service';
+import { environment } from '@src/environments/environment';
+import { EncryptionService } from '../services/encryption.service';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const snackBar = inject(MatSnackBar);
   const authService = inject(AuthService);
+  const encryptionService = inject(EncryptionService);
 
-  return next(req).pipe(
+  // Only modify POST or PUT requests
+  let modifiedReq = req;
+  if (req.method === 'POST' || req.method === 'PUT') {
+    let newBody: any;
+
+    if (environment.is_enable_encryption) {
+      // Encrypt as string
+      const bodyString = JSON.stringify(req.body);
+      newBody = encryptionService.encrypt(bodyString);
+    } else {
+      newBody = req.body;
+    }
+
+    modifiedReq = req.clone({ body: newBody });
+  }
+  return next(modifiedReq).pipe(
     catchError((error: HttpErrorResponse) => {
       let errorMessage = 'An error occurred';
 
